@@ -1,0 +1,65 @@
+﻿@model AQuest_test.Models.Cart
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h3>Cart</h3>
+
+@if (Model.Items.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Cost</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Product.Price</td>
+                    <td>@item.Cost</td> <!-- Display the cost -->
+                    <td class=".remove-from-cart">
+                        <form action="/Cart/Remove" method="post">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">@if (Model.Discounted) { <h4>Coupon applicato</h4> } Totale:</td>
+                <td>@Model.TotalCost</td>
+            </tr>
+        </tfoot>
+    </table>
+    
+}
+else
+{
+    <p>Cart is empty.</p>
+
+
+}
+
+<div class="btn-group">
+    <form asp-controller="Home" asp-action="Index" method="get">
+        <button type="submit" class="btn btn-primary">
+            Edit Products (Start Again)
+        </button>
+    </form>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/cart.js"></script>
+}

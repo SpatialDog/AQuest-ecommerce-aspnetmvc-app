@@ -1,0 +1,106 @@
+﻿@model AQuest_test.Models.Cart
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="page-container">
+    <h3>Checkout</h3>
+    <div style="
+    display: flex;
+    
+    justify-content: space-between;
+">
+        <section class="user-info">
+            <h4>Riepilogo dati personali</h4>
+
+            <div class="field">
+                Nome: Mattia
+            </div>
+            <div class="field">
+                Cognome: Perrone
+            </div>
+            <div class="field">
+                matperro@gmail.com
+            </div>
+            <div class="field">
+                Italy
+            </div>
+
+            <div class="field">
+                Iscritto alla Newsletter
+            </div>
+
+
+            <div class="field">
+                Richiesta fatturazione
+            </div>
+
+            <div class="field">
+                Partita IVA: 12
+            </div>
+            <div class="field">
+                Codice Fiscale: 12
+            </div>
+
+
+
+        </section>
+
+        <section class="cart-items">
+            <h4>Riepilogo carrello</h4>
+            <table class="cart-items">
+                <thead>
+                    <tr>
+                        <th>Prodotto</th>
+                        <th>Prezzo</th>
+                        <th>Quantità</th>
+                        <th>Totale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Prodotto 1</td>
+                        <td>20</td>
+                        <td>1</td>
+                        <td>20</td>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"> Totale:</td>
+                        <td>20</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </div>
+    
+        <section class="payment">
+            <div class="field">
+                <input type="radio" name="payment_type" value="paypal">
+                <label>Paga con Paypal</label><br />
+                <input type="radio" name="payment_type" value="stripe">
+                <label>Paga con Stripe</label>
+            </div>
+
+            <div class="field field-checkbox">
+                <label>Ho letto e accetto le condizioni generali di vendita</label>
+                <input type="checkbox" name="terms_and_conditions" />
+            </div>
+
+        </section>
+
+        <section>
+            <form asp-controller="Home" asp-action="User_info" method="get">
+                <button type="submit" class="btn btn-secondary">
+                    Indietro
+                </button>
+            </form>
+            <form>
+            <button>Procedi</button>
+            </form>
+        </section>
+    
+</div>

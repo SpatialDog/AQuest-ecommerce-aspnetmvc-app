@@ -1,64 +1,60 @@
-﻿@{
+﻿@model IEnumerable<Product>
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 
 
-<div class="page-container">
-  <h3>Carrello</h3>
-  <section class="cart-items">
-    <table class="cart-items">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Prodotto</th>
-          <th>Prezzo</th>
-          <th>Quantità</th>
-          <th>Totale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="cart-action tac">
-            <span>x</span>
-          </td>
-          <td class="cart-item">Prodotto 1</td>
-          <td class="cart-price tar">12</td>
-          <td class="cart-action cart-quantity tac">
-            <span class="cart-quantity-minus">-</span>
-            <span class="cart-quantity-value">3</span>
-            <span class="cart-quantity-plus">+</span>
-          </td>
-          <td class="row-total tar">36</td>
-        </tr>
-        <tr>
-          <td class="cart-action tac">
-            <span>x</span>
-          </td>
-          <td class="cart-item">Prodotto 2</td>
-          <td class="cart-price tar">4</td>
-          <td class="cart-action cart-quantity tac">
-            <span class="cart-quantity-minus">-</span>
-            <span class="cart-quantity-value">2</span>
-            <span class="cart-quantity-plus">+</span>
-          </td>
-          <td class="row-total tar">8</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="4">&nbsp;</td>
-          <td class="cart-total tar">44</td>
-        </tr>
-      </tfoot>
-    </table>
-  </section>
-  <section class="cart-coupon tar">
-    <span class="cart-total-label">Inserisci codice coupon:</span>
-    <input type="text" name="coupon-code" />
-    <button>Applica coupon</button>
-  </section>
-  <section class="tar">
-    <a class="button" asp-action="User_Info">Procedi</a>
-  </section>
+<div class="container">
+    <h3>Carrello</h3>
+    <div class="table-responsive table-responsive-sm">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th class="col">Id</th>
+                    <th class="col">Nome</th>
+                    <th class="col">Descrizione</th>
+                    <th class="col">Prezzo</th>
+                    <th class="col">Quantitá</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+
+                        <td class="">@Html.DisplayFor(modelItem => product.Id)</td>
+                        <td class="tar">@Html.DisplayFor(modelItem => product.Name)</td>
+                        <td class="tac">@Html.DisplayFor(modelItem => product.Description)</td>
+                        <td class="tar">@Html.DisplayFor(modelItem => product.Price)</td>
+                        <td><input type="number" min="1" value="1" id="Quantity-@product.Id"/></td>
+                        <td align="center" class="add-to-cart"><button data-product-id="@product.Id">Aggiungi al Carrello</button></td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <section class="cart-coupon tar">
+        <span class="cart-total-label">Inserisci codice coupon:</span>
+        <input id="coupon" type="text" name="coupon-code" />
+        <button id="coupon-button">Applica coupon</button>
+    </section>
+    <section class="tar">
+
+        <div class="btn-group">
+            <form asp-controller="Cart" asp-action="Index" method="get">
+                <button type="submit" class="btn btn-primary">Carrello</button>
+            </form>
+            <form id='user-proceed' asp-controller="Home" asp-action="User_info" method="get">
+                <button type="submit" class="btn btn-primary">Procedi</button>
+            </form>
+        </div>
+    </section>
+
 </div>

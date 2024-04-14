@@ -22,12 +22,12 @@ body {
 }
 
 .page-container {
-  width: 70%;
-  margin: 100px auto 0;
+  
 }
 
 table {
   border-collapse: collapse;
+  max-width: 1200px;
 }
 
 table tr td,
@@ -36,6 +36,7 @@ table tfoot td {
   border: 1px solid #bbb;
   padding: 10px;
 }
+
 
 table.cart-items {
   width: 100%;
@@ -77,4 +78,21 @@ button {
 form
 {
     width: 100%;
+}
+
+.center {
+    width: 200px;
+    
+}
+
+
+table th{
+    width: 180px;
+}
+
+.inputgroup{
+
+    display: flex;
+    min-width: 200px;
+    
 }

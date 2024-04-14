@@ -4,20 +4,19 @@
 <h3>@ViewData["Title"]</h3>
 
 
-<form action="checkout.html">
+
         <section class="user-data">
           <div class="field">
-            <input type="text" name="first-name" placeholder="Nome" />
+            <input type="text" class="user1" name="first-name" placeholder="Nome" required />
           </div>
           <div class="field">
-            <input type="text" name="last-name" placeholder="Cognome" />
+            <input type="text" class="user2" name="last-name" placeholder="Cognome" required />
           </div>
           <div class="field">
-            <input type="email" name="email" placeholder="Email" />
+            <input type="email" class="user3" name="email" placeholder="Email" required />
           </div>
           <div class="field field-select">
-            <select name="nation" placeholder="Nazione">
-              <option value="">Nazione</option>
+            <select class="user-nation" name="nation" placeholder="Nazione" required>
               <option value="Argentina">Argentina</option>
               <option value="Italy">Italy</option>
               <option value="USA">USA</option>
@@ -25,26 +24,40 @@
           </div>
           <div class="field field-checkbox">
             <label>Iscriviti alla newsletter</label>
-            <input type="checkbox" name="newsletter" />
+            <input class="user4" type="checkbox" name="newsletter" />
           </div>
           <div class="field field-checkbox">
             <label>Richiedi fattura</label>
-            <input type="checkbox" name="invoice" />
+            <input class="user5" type="checkbox" name="bill" />
           </div>
           <div class="field">
-            <input type="text" name="fiscal-tax-number" placeholder="Partita IVA" />
+            <input class="user6" type="text" name="fiscal-tax-number" placeholder="Partita IVA" />
           </div>
           <div class="field">
-            <input type="text" name="fiscal-code-number" placeholder="Codice Fiscale" />
+            <input class="user7" type="text" name="fiscal-code-number" placeholder="Codice Fiscale" required />
           </div>
           <div class="field field-checkbox">
             <label>Ho letto e accetto l'informativa sulla privacy</label>
-            <input type="checkbox" name="privacy" />
+            <input class="user8" type="checkbox" name="privacy" />
           </div>
         </section>
 
-        <section>
-          <a class="button" href="/index.html">Indietro</a>
-          <button>Procedi</button>
-        </section>
-      </form>
+    <section class="tar">
+
+        <div class="btn-group">
+        <form asp-controller="Home" asp-action="Index" method="get">
+            <button type="submit" class="btn btn-primary">Indietro</button>
+        </form>
+
+        <form method="get">
+            <button class="user-info btn btn-primary" type="submit" class="btn btn-primary">Procedi</button>
+        </form>
+
+        <form style="display:none" asp-controller="Checkout" asp-action="Checkout" method="get">
+            <button id="checkout-button" type="submit">
+            </button>
+        </form>
+        </div>
+    </section>
+      
+
