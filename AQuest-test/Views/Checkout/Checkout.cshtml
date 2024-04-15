@@ -92,15 +92,17 @@
 
         </section>
 
-        <section>
-            <form asp-controller="Home" asp-action="User_info" method="get">
-                <button type="submit" class="btn btn-secondary">
-                    Indietro
-                </button>
-            </form>
-            <form>
-            <button>Procedi</button>
-            </form>
+        <section class="tar">
+            <div class="btn-group">
+            <form class="btn-form" asp-controller="Home" asp-action="User_info" method="get">
+                    <button type="submit" class="btn btn-secondary">
+                        Indietro
+                    </button>
+                </form>
+            <form class="btn-form" method="get">
+                    <button>Procedi</button>
+                </form>
+            </div>
         </section>
     
 </div>
