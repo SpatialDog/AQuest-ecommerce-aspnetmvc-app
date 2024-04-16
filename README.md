@@ -46,6 +46,13 @@ CREATE TABLE `coupon` (
   PRIMARY KEY (`id`)
   )
 
+### Controller
+
+Nel progetto ci sono 3 controller nominati Home, Cart e Checkout.
+
+Il **CartController** è quello più importante nella soluzione, perchè è quello che gestisce le chiamate dal client per aggiungere, modificare e rimuovere articoli dal carrello.
+
+
 ## Cosa manca nel progetto/Come si dovrebbe evolvere
 
 
@@ -53,7 +60,7 @@ Oltre alle funzionalitá mancanti il sito di E-commerce, per essere tale, avrebb
 Un utente dovrebbe aver la possibilitá di autenticarsi sul sito e poter effettuare acquisti tramite un proprio account salvato. Questo permetterebbe di inserire tutta la logica legata agli ordini e allo storico.
 Inoltre allo stato attuale il coupon è pensato per essere utilizzato soltanto una volta dal momento in cui viene riscattato. 
 In un caso reale il coupon dovrebbe essere disponibile a tutti gli utenti registrati sul sito web (tramite una relazione tra tabelle sul database) e il campo **Used** dovrebbe essere impostato a True solo quando l'utente completa l'acquisto.
-Per quanto riguarda le View il sito è utilizzabile anche da mobile ma avrebbe la necessitá di essere modificato per avere un design più appetibile all'utente (per esempio il bottone del carrello andrebbe spostato sulla navbar).
+Per quanto riguarda le View il sito è utilizzabile anche da mobile ma avrebbe la necessitá di essere modificato per avere un design più appetibile all'utente (per esempio il bottone del carrello andrebbe spostato sulla navbar, e andrebbe usato qualcos'altro al posto degli alert).
 
 
 
